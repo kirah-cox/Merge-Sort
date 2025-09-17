@@ -39,32 +39,6 @@ public class DefaultSortBaseCase
         return true;
     }
 
-    public static int[] InsertionSort(int[] numberList, int listLength)
-    {
-        int storedNumber;
-        int positionNumber;
-        int[] sortedList = numberList;
-
-        while (!IsSorted(numberList, listLength))
-        {
-            for (int i = 1; i < listLength; i++)
-            {
-                positionNumber = i - 1;
-                while (numberList[i] < numberList[positionNumber])
-                {
-                    storedNumber = numberList[i];
-                    numberList[i] = numberList[positionNumber];
-                    numberList[positionNumber] = storedNumber;
-                    if (positionNumber - 1 >= 0)
-                    {
-                        positionNumber--;
-                    }
-                }
-            }
-        }
-        return sortedList;
-    }
-
     public int[] SortList(int[] values)
     {
         if (!IsBaseCase(values.Length, baseCaseLength))
@@ -132,8 +106,7 @@ public class DefaultSortBaseCase
 
                 for (int j = 0; j < restOfList.Length; j++)
                 {
-                    int[] restOfListSorted = InsertionSort(restOfList, restOfList.Length);
-                    newList[indexNewList] = restOfListSorted[j];
+                    newList[indexNewList] = restOfList[j];
                     indexNewList++;
                 }
             }
@@ -150,8 +123,7 @@ public class DefaultSortBaseCase
 
                 for (int j = 0; j < restOfList.Length; j++)
                 {
-                    int[] restOfListSorted = InsertionSort(restOfList, restOfList.Length);
-                    newList[indexNewList] = restOfListSorted[j];
+                    newList[indexNewList] = restOfList[j];
                     indexNewList++;
                 }
             }
